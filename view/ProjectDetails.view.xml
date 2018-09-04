@@ -1,0 +1,56 @@
+<mvc:View controllerName="colpal.ppm.projectmgmt.controller.ProjectDetails" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{PGI>/viewTitle}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<IconTabBar selectedKey="__filter0" id="__bar0" select="onTabSelect">
+				<items>
+					<IconTabFilter text="{i18n>PE_Gen}" id="__filter0" icon="sap-icon://message-information" iconColor="{PGI>/Project/ProjectGenInfoColor}">
+						<core:Fragment id="general" fragmentName="colpal.ppm.projectmgmt.fragment.ProjectGeneralInfo" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter text="{i18n>PE_Fin}" count="{PGI>/ProjectFinCount}" icon="sap-icon://customer-financial-fact-sheet" iconColor="{PGI>/Project/ProjectFinInfoColor}"
+						id="_fin" enabled="{PGI>/Editable/FinTab}">
+						<core:Fragment id="fin" fragmentName="colpal.ppm.projectmgmt.fragment.ProjectFinInfo" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter text="{i18n>PE_Attachment}" count="{PGI>/ProjectAttCount}" icon="sap-icon://attachment" iconColor="{PGI>/Project/ProjectAttColor}" id="_attachment"
+						enabled="{PGI>/Editable/AttTab}">
+						<core:Fragment id="attchmnt" fragmentName="colpal.ppm.projectmgmt.fragment.ProjectAttachment" type="XML"/>
+					</IconTabFilter>
+					<!--<ToolbarSpacer/>-->
+					<IconTabFilter text="{i18n>PCLogTitle}" icon="sap-icon://sap-box" id="_logs" enabled="{PGI>/Editable/LogTab}" iconColor="{PGI>/Project/ProjectChangeLogsColor}">
+						<core:Fragment id="logs" fragmentName="colpal.ppm.projectmgmt.fragment.ProjectChangeLogs" type="XML"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<!--<semantic:flagAction>-->
+		<!--	<semantic:FlagAction id="copy" text="Copy" enabled="{PGI>/Editable/enableUpdate}" press="onCopy"/>-->
+		<!--</semantic:flagAction>-->
+		<!--<semantic:customFooterContent>-->
+		<!--	<Button id="copy" visible="false" text="Copy" enabled="true" press="onCopy"/>-->
+		<!--</semantic:customFooterContent>-->
+		<semantic:customFooterContent>
+			<!--<Button id="saveClose" visible="true" text="Save & Close" enabled="true" press="onSave"/>-->
+			<Button id="saveClose" visible="{PGI>/Visible/enableSaveClose}" text="{i18n>SaveClose}" enabled="true" press="onSave"/>
+		</semantic:customFooterContent>
+		<semantic:customFooterContent>
+			<Button id="save" visible="{PGI>/Visible/enableUpdate}" text="Save" enabled="true" press="onSave"/>
+		</semantic:customFooterContent>
+		<semantic:customFooterContent>
+			<Button id="edit" visible="{PGI>/Visible/EditButton}" text="Edit" enabled="true" press="onPressEdit"/>
+		</semantic:customFooterContent>
+		<semantic:customFooterContent>
+			<Button id="cancel" visible="true" text="Cancel" enabled="true"  press="onCancel"/>
+		</semantic:customFooterContent>
+		
+		<!--<semantic:saveAction>-->
+		<!--	<semantic:SaveAction id="save" enabled="{PGI>/Editable/enableUpdate}" visible="{PGI>/Visible/enableUpdate}" press="onSave"/>-->
+		<!--</semantic:saveAction>-->
+		<!--<semantic:editAction>-->
+		<!--	<semantic:EditAction id="edit" enabled="{PGI>/Editable/EditButton}" visible="{PGI>/Visible/EditButton}" press="onPressEdit"/>-->
+		<!--</semantic:editAction>-->
+		<!--<semantic:cancelAction>-->
+		<!--	<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>-->
+		<!--</semantic:cancelAction>-->
+	</semantic:DetailPage>
+</mvc:View>

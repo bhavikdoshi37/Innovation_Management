@@ -1,0 +1,192 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:uc="sap.ui.unified.calendar" xmlns:t="sap.ui.table" xmlns:c="sap.ui.commons" xmlns:v="sap.ui.comp.variants">
+	<!--<VBox class="sapUiNoMarginBegin sapUiNoMarginEnd"></VBox>-->
+	<VBox class="noScrollSection">
+		<t:Table id="lineItemsList" rows="{ path: 'PPMData>/Items/Current'}" noDataText="{i18n>detailLineItemTableNoDataText}"
+			busyIndicatorDelay="{detailView>/lineItemTableDelay}" selectionMode="Single" selectionBehavior="RowOnly" class="SapUiResponsiveMargin"
+			rowSelectionChange="onRowSelectionChange" fixedColumnCount="1" rowHeight="40" columnMove="onColumnMove" filter="onColumnFilter"
+			sort="onColumnSort" tooltip="PPMData>/Items/Length" minAutoRowCount="11" visibleRowCount="11" threshold="5000" visibleRowCountMode="Auto">
+			<!--fixedColumnCount="1"-->
+			<t:toolbar>
+				<Toolbar>
+					<!--title="{= ${viewModel>/mode} === 'edit'? 'Edit /IWBEP/GWSAMPLE_BASIC.SalesOrder': 'New /IWBEP/GWSAMPLE_BASIC.SalesOrder'}">-->
+					<Button text="{i18n>detailNewProject}" press="onAdd" tooltip="{i18n&gt;detailNewProject}" type="Emphasized"
+						visible="{detailView>/createProjectVisible}"/>
+					<Title id="title" text="{= ${viewModel>/mode} === 'ProjectsByInitiative'? 'Project List for Initiative': 'All Projects'}"></Title>
+					<ToolbarSpacer/>
+					<!--<Button icon="sap-icon://sorting-ranking" tooltip="Sort ascending across Categories and Name" press="sortCategoriesAndName"/>-->
+					<!--<Title text="{i18n>A_view}" visible="{projectView>/oTableControl/bVariantVisible}" level="H3"/>-->
+					<v:VariantManagement id="Variant" enabled="true" manage="onVariantManage" save="onP13nSave" select="onVariantSelect"
+						showExecuteOnSelection="false" showShare="false" visible="{projectView>/oTableControl/bVariantVisible}" standardItemText="Custom Views"></v:VariantManagement>
+					<Button icon="sap-icon://personnel-view" tooltip="{i18n>detailPersonalizeSettings}" press="onPersonalizeSettings"/>
+					<Button icon="sap-icon://download" tooltip="{i18n>Export to Excel}" press="onExport"/>
+					<Button icon="sap-icon://decline" tooltip="{i18n>detailClearSettings}" press="onClearAllSettings"/>
+					<Button icon="sap-icon://refresh" tooltip="{i18n>detailRefresh}" press="onPressRefresh"
+						enabled="{projectView>/oTableControl/refreshEnabled}" visible="{projectView>/oTableControl/bRefreshVisible}"/>
+				</Toolbar>
+			</t:toolbar>
+			<t:columns >
+				<t:Column id="_ItemDesc" visible="{P13n>/FixedColumnConfig/0/visible}" width="{P13n>/FixedColumnConfig/0/width}" sortProperty="ItemDesc"
+					filterProperty="ItemDesc">
+					<Label text="{i18n>detailItemName}" />
+					<t:template>
+						<Text text="{PPMData>ItemDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_itemId" visible="{P13n>/FixedColumnConfig/1/visible}" width="{P13n>/FixedColumnConfig/1/width}" sortProperty="ItemId"
+					filterProperty="ItemId">
+					<Label text="{i18n>detailItemId}"/>
+					<t:template>
+						<Text text="{PPMData>ItemId}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_CategoryDesc" visible="{P13n>/FixedColumnConfig/2/visible}" width="{P13n>/FixedColumnConfig/2/width}"
+					sortProperty="CategoryDesc" filterProperty="CategoryDesc">
+					<Label text="{i18n>detailCategoryDesc}"/>
+					<t:template>
+						<Text text="{PPMData>CategoryDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_SubcategoryDesc" visible="{P13n>/FixedColumnConfig/3/visible}" width="{P13n>/FixedColumnConfig/3/width}"
+					sortProperty="SubcategoryDesc" filterProperty="SubcategoryDesc">
+					<Label text="{i18n>detailSubcategoryDesc}"/>
+					<t:template>
+						<Text text="{PPMData>SubcategoryDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_DivisionDesc" visible="{P13n>/FixedColumnConfig/4/visible}" width="{P13n>/FixedColumnConfig/4/width}"
+					sortProperty="DivisionDesc" filterProperty="DivisionDesc">
+					<Label text="{i18n>detailDivisionDesc}"/>
+					<t:template>
+						<Text text="{PPMData>DivisionDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_LeadHubDesc" visible="{P13n>/FixedColumnConfig/5/visible}" width="{P13n>/FixedColumnConfig/5/width}" sortProperty="HubDesc"
+					filterProperty="HubDesc">
+					<Label text="{i18n>detailHubDesc}"/>
+					<t:template>
+						<Text text="{PPMData>HubDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_LaunchDt" visible="{P13n>/FixedColumnConfig/6/visible}" width="{P13n>/FixedColumnConfig/6/width}" sortProperty="LaunchDate">
+					<Label text="{i18n>detailLaunchDate}"/>
+					<t:template>
+						<Text text="{path: 'PPMData>LaunchDate', formatter: '.formatter.formatDateShort'}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_InnovationTypeDesc" visible="{P13n>/FixedColumnConfig/7/visible}" width="{P13n>/FixedColumnConfig/7/width}"
+					sortProperty="InnovationDesc" filterProperty="InnovationDesc">
+					<Label text="{i18n>detailInnovationTypeDesc}"/>
+					<t:template>
+						<Text text="{PPMData>InnovationDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_ItemTypeDesc" visible="{P13n>/FixedColumnConfig/8/visible}" width="{P13n>/FixedColumnConfig/8/width}"
+					sortProperty="ItemtypeDesc" filterProperty="ItemtypeDesc">
+					<Label text="{i18n>detailItemTypeDesc}"/>
+					<t:template>
+						<Text text="{PPMData>ItemtypeDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_PhaseDesc" visible="{P13n>/FixedColumnConfig/9/visible}" width="{P13n>/FixedColumnConfig/9/width}" sortProperty="PhaseDesc"
+					filterProperty="PhaseDesc">
+					<Label text="{i18n>detailPhaseDesc}"/>
+					<t:template>
+						<Text text="{PPMData>PhaseDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_StatusDesc" visible="{P13n>/FixedColumnConfig/10/visible}" width="{P13n>/FixedColumnConfig/10/width}"
+					sortProperty="PhasestatusDesc" filterProperty="PhasestatusDesc">
+					<Label text="{i18n>detailStatusDesc}"/>
+					<t:template>
+						<Text text="{PPMData>PhasestatusDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_StartDt" visible="{P13n>/FixedColumnConfig/11/visible}" width="{P13n>/FixedColumnConfig/11/width}" sortProperty="StartDate"
+					filterProperty="StartDate">
+					<Label text="{i18n>detailStartDate}"/>
+					<t:template>
+						<Text text="{path: 'PPMData>StartDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'medium'}}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_currencyDesc" visible="{P13n>/FixedColumnConfig/12/visible}" width="{P13n>/FixedColumnConfig/12/width}"
+					sortProperty="CurrencyDesc" filterProperty="CurrencyDesc">
+					<Label text="{i18n>detailCurrencyDesc}"/>
+					<t:template>
+						<Text text="{PPMData>CurrencyDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_grid" visible="{P13n>/FixedColumnConfig/13/visible}" width="{P13n>/FixedColumnConfig/13/width}" sortProperty="Grid"
+					filterProperty="Grid">
+					<Label text="{i18n>detailGrid}"/>
+					<t:template>
+						<Text text="{path: 'PPMData>ZimGrid', formatter: '.formatter.formatGrid'}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_BrandDesc" visible="{P13n>/FixedColumnConfig/14/visible}" width="{P13n>/FixedColumnConfig/14/width}" sortProperty="BrandDesc"
+					filterProperty="BrandDesc">
+					<Label text="{i18n>detailBrandDesc}"/>
+					<t:template>
+						<Text text="{PPMData>BrandDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_SubbrandDesc" visible="{P13n>/FixedColumnConfig/15/visible}" width="{P13n>/FixedColumnConfig/15/width}"
+					sortProperty="SubbrandDesc" filterProperty="SubbrandDesc">
+					<Label text="{i18n>detailSubbrandDesc}"/>
+					<t:template>
+						<Text text="{PPMData>SubbrandDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_StarfoDesc" visible="{P13n>/FixedColumnConfig/16/visible}" width="{P13n>/FixedColumnConfig/16/width}"
+					sortProperty="StarfoDesc" filterProperty="StarfoDesc">
+					<Label text="{i18n>detailStarfoDesc}"/>
+					<t:template>
+						<Text text="{PPMData>StarfoDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_ProjmanagerDesc" visible="{P13n>/FixedColumnConfig/17/visible}" width="{P13n>/FixedColumnConfig/17/width}"
+					sortProperty="ProjmanagerDesc" filterProperty="ProjmanagerDesc">
+					<Label text="{i18n>detailProjmanagerDesc}"/>
+					<t:template>
+						<Text text="{PPMData>ProjmanagerDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_FinamanagerDesc" visible="{P13n>/FixedColumnConfig/18/visible}" width="{P13n>/FixedColumnConfig/18/width}"
+					sortProperty="FinamanagerDesc" filterProperty="FinamanagerDesc">
+					<Label text="{i18n>detailFinamanagerDesc}"/>
+					<t:template>
+						<Text text="{PPMData>FinamanagerDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_CreatedbyDesc" visible="{P13n>/FixedColumnConfig/19/visible}" width="{P13n>/FixedColumnConfig/19/width}"
+					sortProperty="CreatedbyDesc" filterProperty="CreatedbyDesc">
+					<Label text="{i18n>detailCreatedbyDesc}"/>
+					<t:template>
+						<Text text="{PPMData>CreatedbyDesc}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_CreatedDate" visible="{P13n>/FixedColumnConfig/20/visible}" width="{P13n>/FixedColumnConfig/20/width}"
+					sortProperty="CreatedDate" filterProperty="CreatedDate">
+					<Label text="{i18n>detailCreatedDate}"/>
+					<t:template>
+						<Text text="{PPMData>CreatedDate}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_MarketingDesc" visible="{P13n>/FixedColumnConfig/21/visible}" width="{P13n>/FixedColumnConfig/21/width}"
+					sortProperty="MarkobjeDesc" filterProperty="MarkobjeDesc">
+					<Label text="{i18n>detailMarkobjeDesc}"/>
+					<t:template>
+						<Text text="{PPMData>MarkobjeDesc}"/>
+					</t:template>
+				</t:Column>
+			</t:columns>
+			<t:footer>
+				<Toolbar>
+					<Label text="{PPMData>/ProjectListFooterText}"/>
+					<ToolbarSpacer/>
+					<Label text="{PPMData>/ProjectListFooterText2}"/>
+				</Toolbar>
+			</t:footer>
+		</t:Table>
+	</VBox>
+</core:FragmentDefinition>

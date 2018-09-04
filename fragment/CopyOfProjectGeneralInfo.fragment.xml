@@ -1,0 +1,250 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:uc="sap.ui.unified.calendar" >
+	<VBox class="sapUiSmallMargin">
+		<f:Form class="editableForm" editable="true" id="ProjectGeneralForm" ariaLabelledBy="Title1"
+		width="100%"
+				>
+			<!--<f:toolbar>-->
+			<!--	<Toolbar id="Toolbar">-->
+					<!--<Title id="Titlea" text="{PGInfo>/Labels/Title1}" level="H4" titleStyle="H4" visible="{PGInfo>/Visible/Title1}"/>-->
+					<!--<ToolbarSpacer/>-->
+					<!--<Button id="Save2" text="{PGInfo>/Labels/Save2}" press="onSaveAndAdd" type="Emphasized" visible="{PGInfo>/Visible/Save2}"/>-->
+			<!--	</Toolbar>-->
+			<!--</f:toolbar>-->
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" />
+			</f:layout>
+			<f:formContainers >
+				<f:FormContainer ariaLabelledBy="Title2">
+					<f:formElements>
+						<f:FormElement>
+							<f:fields>
+								<Title id="ProjectAtt" text="{i18n>PGIProjAtt}" level="H5" titleStyle="H5"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__PName" label="{i18n>PGIName}" visible="{PGInfo>/Visible/ProjectName}">
+							<f:fields>
+								<Input editable="{PGInfo>/Editable/ProjectName}" id="ProjectName" 
+											placeholder="ProjectName"	value="{ItemDesc}" 
+												visible="{PGInfo>/Visible/ProjectName}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__PID" label="{i18n>PGIId}" visible="{PGInfo>/Visible/PID}">
+							<f:fields>
+								<Input editable="{PGInfo>/Editable/PID}" id="ProjectID" 
+												value="{PPMData>/Project/Input/ItemId}" 
+												visible="{PGInfo>/Visible/PID}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__IName" label="{i18n>PGIIName}" visible="{PGInfo>/Visible/IName}">
+							<f:fields>
+								<Input editable="{PGInfo>/Editable/IName}" id="InitiativeName" 
+												value="{PGInfo>/Display/IName}" 
+												visible="{PGInfo>/Visible/IName}"/>
+							</f:fields>
+						</f:FormElement>						
+						<f:FormElement id="__IID" label="{i18n>PGIIId}" visible="{PGInfo>/Visible/IID}">
+							<f:fields>
+								<Input editable="{PGInfo>/Editable/IID}" id="InitiativeID" 
+												value="{PGInfo>/Display/IID}" 
+												visible="{PGInfo>/Visible/IID}"/>
+							</f:fields>
+						</f:FormElement>						
+						<f:FormElement id="__Idea" label="{i18n>PGIIdea}" visible="{PGInfo>/Visible/Idea}">
+							<f:fields>
+								<Input editable="{PGInfo>/Editable/Idea}" id="Idea" 
+												value="{PGInfo>/Display/Idea}" 
+												visible="{PGInfo>/Visible/Idea}"/>
+							</f:fields>
+						</f:FormElement>
+			<!--			</f:formElements>-->
+			<!--	</f:FormContainer>-->
+			<!--</f:formContainers>-->
+			<!--			<f:layout>-->
+			<!--	<f:ResponsiveGridLayout labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" />-->
+			<!--</f:layout>-->
+			<!--<f:formContainers >-->
+			<!--	<f:FormContainer ariaLabelledBy="Title2">-->
+			<!--	<f:formElements>-->
+						<f:FormElement id="__PType" label="{i18n>PGIPType}" visible="{PGInfo>/Visible/PType}">
+							<f:fields>
+								<ComboBox id="PType" items="{path:'masterShared>/ProjectTypes'}" placeholder="{i18n>PGI_ProjectTypes}"
+											selectedKey="{PGInfo>/Display/PType}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/PType}" enabled="{PGInfo>/Editable/PType}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__Phase" label="{i18n>PGIPhase}" visible="{PGInfo>/Visible/Phase}">
+							<f:fields>
+								<ComboBox id="Phase" items="{path:'masterShared>/Phases'}" placeholder="{i18n>PGI_Phases}"
+											selectedKey="{PGInfo>/Display/Phases}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/Phase}" enabled="{PGInfo>/Editable/Phase}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__Status" label="{i18n>PGIStatus}" visible="{PGInfo>/Visible/Status}">
+							<f:fields>
+								<ComboBox id="Status" items="{path:'masterShared>/Status'}" placeholder="{i18n>PGI_Status}"
+											selectedKey="{PGInfo>/Display/Status}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/Status}" enabled="{PGInfo>/Editable/Status}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__Grid" label="{i18n>PGIGrid}" visible="{PGInfo>/Visible/Grid}">
+							<f:fields>
+								<!--valueState="Error"-->
+								<CheckBox  enabled="{PGInfo>/Editable/Info}" selected="{PGInfo>/Display/Grid}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__PM" label="{i18n>PGIPMgr}" visible="{PGInfo>/Visible/PMgr}">
+							<f:fields>
+								<ComboBox id="PMgr" items="{path:'masterShared>/PMgr'}" placeholder="{i18n>PGI_PMgr}"
+											selectedKey="{PGInfo>/Display/PMgr}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/PMgr}" enabled="{PGInfo>/Editable/PMgr}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__FM" label="{i18n>PGIFMgr}" visible="{PGInfo>/Visible/FMgr}">
+							<f:fields>
+								<ComboBox id="FMgr" items="{path:'masterShared>/FMgr'}" placeholder="{i18n>PGI_FMgr}"
+											selectedKey="{PGInfo>/Display/FMgr}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/FMgr}" enabled="{PGInfo>/Editable/FMgr}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__Innovation" label="{i18n>PGIInnovation}" visible="{PGInfo>/Visible/Innovation}">
+							<f:fields>
+								<ComboBox id="Innovation" items="{path:'masterShared>/Innovation'}" placeholder="{i18n>PGI_Innovation}"
+											selectedKey="{PGInfo>/Display/Innovation}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/Innovation}" enabled="{PGInfo>/Editable/Innovation}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__BFld" label="{i18n>PGIBFld}" visible="{PGInfo>/Visible/BFld}">
+							<f:fields>
+								<ComboBox id="BFld" items="{path:'masterShared>/BattleField'}" placeholder="{i18n>PGI_BFld}"
+											selectedKey="{PGInfo>/Display/BattlefieldDesc}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/BFld}" enabled="{PGInfo>/Editable/BFld}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__Sgmnt" label="{i18n>PGISegment}" visible="{PGInfo>/Visible/Segment}">
+							<f:fields>
+								<ComboBox id="Sgmnt" items="{path:'masterShared>/Segment'}" placeholder="{i18n>PGI_Segment}"
+											selectedKey="{PGInfo>/Display/SegmentDesc}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/Segment}" enabled="{PGInfo>/Editable/Segment}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+				</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer ariaLabelledBy="Title2">
+					<f:formElements>
+
+						<f:FormElement>
+							<f:fields>
+								<Title id="ProdHierarchy" text="{i18n>PGIProdHierarchy}" level="H5" titleStyle="H5"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__category" label="{i18n>PGICategory}" visible="{PGInfo>/Visible/Category}">
+							<f:fields>
+								<ComboBox id="Category" items="{path:'masterShared>/Category'}" placeholder="{i18n>PGI_Category}"
+											selectedKey="{PGInfo>/Display/CategoryDesc}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/Category}" enabled="{PGInfo>/Editable/Category}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__Prodcategory" label="{i18n>PGIProdCategory}" visible="{PGInfo>/Visible/ProdCategory}">
+							<f:fields>
+								<ComboBox id="ProdCategory" items="{path:'masterShared>/ProdCategory'}" placeholder="{i18n>PGI_ProdCategory}"
+											selectedKey="{PGInfo>/Display/ProdCategoryDesc}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/ProdCategory}" enabled="{PGInfo>/Editable/ProdCategory}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__Brand" label="{i18n>PGIBrand}" visible="{PGInfo>/Visible/Brand}">
+							<f:fields>
+								<ComboBox id="Brand" items="{path:'masterShared>/Brand'}" placeholder="{i18n>PGI_Brand}"
+											selectedKey="{PGInfo>/Display/BrandDesc}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/Brand}" enabled="{PGInfo>/Editable/Brand}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__SubBrand" label="{i18n>PGISubBrand}" visible="{PGInfo>/Visible/SubBrand}">
+							<f:fields>
+								<ComboBox id="SubBrand" items="{path:'masterShared>/SubBrand'}" placeholder="{i18n>PGI_SubBrand}"
+											selectedKey="{PGInfo>/Display/SubBrandDesc}" selectionChange="onChange" 
+											visible="{PGInfo>/Visible/SubBrand}" enabled="{PGInfo>/Editable/SubBrand}">
+									<items>
+										<core:Item key="{masterShared>Key}" text="{masterShared>Description}"/>
+									</items>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement>
+							<f:fields>
+								<Title id="ProjectDts" text="{i18n>PGIProjDates}" level="H5" titleStyle="H5"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__StartDt" label="{i18n>PGIStartDt}" visible="{PGInfo>/Visible/StartDt}">
+							<f:fields>
+								<DatePicker id="StartDt" dateValue="{PGInfo>/Display/StartDt}" placeholder="{i18n>PGI_StartDt}"
+											visible="{PGInfo>/Visible/StartDt}" enabled="{PGInfo>/Editable/StartDt}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__LaunchDt" label="{i18n>PGILaunchDt}" visible="{PGInfo>/Visible/StartDt}">
+							<f:fields>
+								<DatePicker id="LaunchDt" dateValue="{PGInfo>/Display/LaunchDt}" placeholder="{i18n>PGI_StartDt}"
+											visible="{PGInfo>/Visible/StartDt}" enabled="{PGInfo>/Editable/StartDt}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__CreateDt" label="{i18n>PGICreateDt}" visible="{PGInfo>/Visible/CreateDt}">
+							<f:fields>
+								<Text text="{path: '{PGInfo>/Display/StartDt}', type: 'sap.ui.model.type.DateTime', formatOptions: {style: 'medium'}}" />				
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="__UpdateDt" label="{i18n>PGIUpdateDt}" visible="{PGInfo>/Visible/UpdateDt}">
+							<f:fields>
+								<Text text="{path: '{PGInfo>/Display/UpdateDt}', type: 'sap.ui.model.type.DateTime', formatOptions: {style: 'medium'}}" />				
+							</f:fields>
+						</f:FormElement>
+
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+</core:FragmentDefinition>

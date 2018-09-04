@@ -1,0 +1,104 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:t="sap.ui.table"
+	controllerName="colpal.ppm.projectmgmt.controller.InitiativeList" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title">
+				<content>
+			<!--		<Table id="lineItemsList" width="auto" items="{/Initiatives}" updateFinished="onListUpdateFinished"-->
+			<!--	noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">-->
+			<!--	<headerToolbar>-->
+			<!--		<Toolbar id="lineItemsToolbar">-->
+			<!--			<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>-->
+			<!--		</Toolbar>-->
+			<!--	</headerToolbar>-->
+			
+		<t:Table id="InListTable" rows="{ path: 'PPMData>/Initiatives'}" noDataText="{i18n>detailLineItemTableNoDataText}" 
+					busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin"
+					selectionMode="Single" selectionBehavior="RowOnly">
+		<t:toolbar>
+					<Toolbar>
+						<Title id="title" text="{i18n>INListTitle}"></Title>
+						<ToolbarSpacer/>
+						<Button
+							icon="sap-icon://sorting-ranking"
+							tooltip="{i18n>INListSortTooltip}"
+							press="sortCategoriesAndName"/>
+						<Button
+							icon="sap-icon://sort"
+							tooltip="{i18n>INListSortTooltip}"
+							press="sortCategories"/>
+						<Button
+							icon="sap-icon://decline"
+							tooltip="{i18n>INListClearSort}"
+							press="clearAllSortings"/>
+					</Toolbar>
+				</t:toolbar>
+				<t:columns>
+					<!--Initiative Name	Initiative ID	Category	Product Category	-->
+					<!--Area (name it as division)	Planned Start	-->
+					<!--Planned Finish (name it as Launch date)	No. of projects linked-->
+					<t:Column id="_inId" width="11rem" sortProperty="Id">
+						<Label text="{i18n>INListItemId}" />
+						<t:template>
+							<Text text="{PPMData>Id}"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="_inName" width="11rem" sortProperty="Name">
+						<Label text="{i18n>INListItemName}" />
+						<t:template>
+							<Text text="{PPMData>Name}"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="_inStatus" width="11rem" sortProperty="StatusDesc">
+						<Label text="{i18n>INListStatus}" />
+						<t:template>
+							<Text text="{PPMData>StatusDesc}"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="_inStartDt" width="11rem" sortProperty="StartDt">
+						<Label text="{i18n>INListStartDt}" />
+						<t:template>
+							<Text text="{PPMData>StartDt}"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="_inEndDt" width="11rem" sortProperty="EndDt">
+						<Label text="{i18n>INListEndDt}" />
+						<t:template>
+							<Text text="{PPMData>EndDt}"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="_inType" width="11rem" sortProperty="TypeDesc">
+						<Label text="{i18n>INListTypeDesc}" />
+						<t:template>
+							<Text text="{PPMData>TypeDesc}"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="_inDiv" width="11rem" sortProperty="RegionDesc">
+						<Label text="{i18n>INListRegionDesc}" />
+						<t:template>
+							<Text text="{PPMData>RegionDesc}"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="_inScale" width="11rem" sortProperty="ItemscaleDesc">
+						<Label text="{i18n>INListScale}" />
+						<t:template>
+							<Text text="{PPMData>ItemscaleDesc}"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="_inGroup" width="11rem" sortProperty="GroupDesc">
+						<Label text="{i18n>INListGroupDesc}" />
+						<t:template>
+							<Text text="{PPMData>GroupDesc}"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+					
+
+      </t:Table>
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

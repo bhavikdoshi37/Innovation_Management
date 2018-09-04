@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+   <edmx:DataServices m:DataServiceVersion="2.0">
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZASM_CORE_SRV_SRV" xml:lang="en" sap:schema-version="1">
+         <EntityType Name="Project" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="PGuid" />
+               <PropertyRef Name="IGuid" />
+               <PropertyRef Name="PId" />
+               <PropertyRef Name="IID" />
+               <PropertyRef Name="IName" />
+            </Key>
+            <Property Name="PGuid" Type="Edm.Binary" Nullable="false" sap:label="Project GUID" sap:updatable="false" sap:sortable="false" />
+            <Property Name="IGuid" Type="Edm.Binary" Nullable="false" sap:label="Initiative GUID" sap:updatable="false" sap:sortable="false" />
+            <Property Name="PId" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="Project ID" sap:sortable="false" />
+            <Property Name="ProjectName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Project Name" sap:sortable="false" sap:filterable="false" />
+            <Property Name="IID" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="Initiative ID" sap:sortable="false" />
+            <Property Name="IName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Initiative Name" sap:sortable="false" sap:filterable="false" />
+            <Property Name="StartDt" Type="Edm.DateTime" Precision="7" sap:label="Fin. Plan Start" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EndDt" Type="Edm.DateTime" Precision="7" sap:label="Fin. PP Finish" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:sortable="false" />
+            <Property Name="CategoryDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="SubCategory" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="ID" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CategoryBucketTxt" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Bucket Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PCategory" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PCategoryDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Brand" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:sortable="false" sap:filterable="false" />
+            <Property Name="BrandDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Subbrand" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:sortable="false" sap:filterable="false" />
+            <Property Name="SubbrandDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="ID" sap:sortable="false" />
+            <Property Name="DivisionDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ItemType" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Item Type" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ItemTypeDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Battlefield" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Battlefield" sap:sortable="false" />
+            <Property Name="BattlefieldDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Created By" sap:sortable="false" />
+            <Property Name="CreatedDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Created Date" sap:sortable="false" />
+            <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Currency" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CurrencyDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Idea" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Idea" sap:sortable="false" />
+            <Property Name="IdeaDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="InnovationType" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Innovation Type" sap:sortable="false" />
+            <Property Name="InnovationTypeDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Phase" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Phase" sap:sortable="false" />
+            <Property Name="PhaseDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ProjectType" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Project Type" sap:sortable="false" />
+            <Property Name="ProjectTypeDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Status" sap:sortable="false" />
+            <Property Name="StatusDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="LaunchDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Launch Date" sap:sortable="false" />
+            <Property Name="ProjectManager" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Project Manager" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ProjectManagerDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Hub" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="Type" />
+               <PropertyRef Name="GeoKey" />
+            </Key>
+            <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="GeoKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Desc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="DivisionKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="HubKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Hub" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="SubKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Sub" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Selected" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="AdditionalData" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Additional Data" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Category" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="Key" />
+            </Key>
+            <Property Name="Key" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Selected" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Selected" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Brand" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="Key" />
+               <PropertyRef Name="Category" />
+               <PropertyRef Name="PSubCategory" />
+            </Key>
+            <Property Name="Key" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Brand" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="PCategory" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="P Cat Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PSubCategory" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="P S Cat Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Selected" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Selected" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="AdditionalData" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Additional Data" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Subbrand" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="Key" />
+               <PropertyRef Name="Category" />
+               <PropertyRef Name="PSubCategory" />
+               <PropertyRef Name="Brand" />
+            </Key>
+            <Property Name="Key" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Subbrand" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="PCategory" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="P Cat Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PSubCategory" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="P S Cat Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Brand" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Brand" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Selected" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Selected" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Division" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="Type" />
+               <PropertyRef Name="GeoKey" />
+            </Key>
+            <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="GeoKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Desc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="DivisionKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="HubKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="SubKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Selected" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="AdditionalData" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Additional Data" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Subcategory" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="Key" />
+               <PropertyRef Name="Category" />
+            </Key>
+            <Property Name="Key" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" />
+            <Property Name="PCategory" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PSubCategory" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Brand" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Subbrand" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Sku" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Hierarchy Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Selected" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Initiative" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="IGuid" />
+               <PropertyRef Name="IID" />
+               <PropertyRef Name="IName" />
+            </Key>
+            <Property Name="IGuid" Type="Edm.Binary" Nullable="false" sap:label="Initiative GUID" sap:updatable="false" sap:sortable="false" />
+            <Property Name="IID" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="Initiative ID" sap:sortable="false" sap:filterable="false" />
+            <Property Name="IName" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Initiative Name" sap:sortable="false" sap:filterable="false" />
+            <Property Name="IType" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Initiative Type" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ITypeDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PType" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Project Type" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PTypeDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PCategory" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Product Category Key" sap:sortable="false" sap:filterable="false" />
+            <Property Name="PCategoryDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Date" Type="Edm.DateTime" Precision="7" sap:label="Date" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Region" Type="Edm.String" Nullable="false" sap:label="Region" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="RegionDesc" Type="Edm.String" Nullable="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Battelefield" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Battelefield" sap:sortable="false" sap:filterable="false" />
+            <Property Name="BattelefieldDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Created By" sap:sortable="false" sap:filterable="false" />
+            <Property Name="StartDt" Type="Edm.DateTime" Precision="7" sap:label="Plan Start" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EndDt" Type="Edm.DateTime" Precision="7" sap:label="Plan Finish" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Project Category" sap:sortable="false" />
+            <Property Name="CategoryDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Group" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Group" sap:sortable="false" sap:filterable="false" />
+            <Property Name="GroupDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Status" sap:sortable="false" sap:filterable="false" />
+            <Property Name="StatusDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ProjectScale" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Project Scale" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ProjectScaleDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="RD" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="R&amp;D" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="GDP" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="GD&amp;P" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="FRG" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="GD&amp;P" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="BriefInitiator" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Brief Initiator" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <NavigationProperty Name="ProjectSet" Relationship="ZASM_CORE_SRV_SRV.Initiative_Porject" FromRole="FromRole_Initiative_Porject" ToRole="ToRole_Initiative_Porject" />
+         </EntityType>
+         <EntityType Name="ProjectFinancialInfo" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="ProjectGuid" />
+               <PropertyRef Name="ProjectId" />
+               <PropertyRef Name="Division" />
+               <PropertyRef Name="Hub" />
+            </Key>
+            <Property Name="ProjectGuid" Type="Edm.Binary" Nullable="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="ProjectId" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="Project ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Div Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Hub" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Hub" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="InitiativeId" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="Initiative ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="RolloutDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Rollout Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code" />
+            <Property Name="MarShare" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:label="Market Share" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Margin" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:label="Margin Y1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="NetSales" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="4" sap:label="Net Sales Y1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Incr" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:label="Incrementally Y1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="IncrNetSal" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:label="Incremental Sale" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EstspAp" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Estimated Spend-A&amp;P" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EstspGdp" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Estimated Spend-GD&amp;P" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EstspIns" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Estimated Spend-Ins" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="EstspGtn" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Estimated Spend-GTN" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Phase" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <EntityType Name="Status" sap:content-version="1">
+            <Key>
+               <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </EntityType>
+         <ComplexType Name="Return">
+            <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Message type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Message Class" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Number" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Message number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:label="Message text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="LogNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Log number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="LogMsgNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Message no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="MessageV1" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="MessageV2" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="MessageV3" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="MessageV4" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Message Variable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Parameter" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Parameter Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Row" Type="Edm.Int32" Nullable="false" sap:label="Parameter line" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Field name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            <Property Name="System" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Logical system" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+         </ComplexType>
+         <Association Name="Initiative_Porject" sap:content-version="1">
+            <End Type="ZASM_CORE_SRV_SRV.Initiative" Multiplicity="0..1" Role="FromRole_Initiative_Porject" />
+            <End Type="ZASM_CORE_SRV_SRV.Project" Multiplicity="*" Role="ToRole_Initiative_Porject" />
+            <ReferentialConstraint>
+               <Principal Role="FromRole_Initiative_Porject">
+                  <PropertyRef Name="IGuid" />
+                  <PropertyRef Name="IID" />
+                  <PropertyRef Name="IName" />
+               </Principal>
+               <Dependent Role="ToRole_Initiative_Porject">
+                  <PropertyRef Name="IGuid" />
+                  <PropertyRef Name="IID" />
+                  <PropertyRef Name="IName" />
+               </Dependent>
+            </ReferentialConstraint>
+         </Association>
+         <EntityContainer Name="ZASM_CORE_SRV_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+            <EntitySet Name="Projects" EntityType="ZASM_CORE_SRV_SRV.Project" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="Hubs" EntityType="ZASM_CORE_SRV_SRV.Hub" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="Categories" EntityType="ZASM_CORE_SRV_SRV.Category" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+            <EntitySet Name="Brands" EntityType="ZASM_CORE_SRV_SRV.Brand" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="Subbrands" EntityType="ZASM_CORE_SRV_SRV.Subbrand" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="Divisions" EntityType="ZASM_CORE_SRV_SRV.Division" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="Subcategories" EntityType="ZASM_CORE_SRV_SRV.Subcategory" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="Initiatives" EntityType="ZASM_CORE_SRV_SRV.Initiative" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="ProjectFinancialInfo" EntityType="ZASM_CORE_SRV_SRV.ProjectFinancialInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="Phases" EntityType="ZASM_CORE_SRV_SRV.Phase" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+            <EntitySet Name="Status" EntityType="ZASM_CORE_SRV_SRV.Status" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+            <AssociationSet Name="Initiative_PorjectSet" Association="ZASM_CORE_SRV_SRV.Initiative_Porject" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+               <End EntitySet="Initiatives" Role="FromRole_Initiative_Porject" />
+               <End EntitySet="Projects" Role="ToRole_Initiative_Porject" />
+            </AssociationSet>
+            <FunctionImport Name="CopyItem" ReturnType="Collection(ZASM_CORE_SRV_SRV.Return)" m:HttpMethod="POST" sap:label="CopyItem">
+               <Parameter Name="GUIDToCopy" Type="Edm.Binary" Mode="In" />
+               <Parameter Name="IncludeChildren" Type="Edm.Boolean" Mode="In" />
+               <Parameter Name="IncludeValues" Type="Edm.Boolean" Mode="In" />
+            </FunctionImport>
+         </EntityContainer>
+         <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://ngdapp20.esc.win.colpal.com:8000/sap/opu/odata/sap/ZIM_MAIN_SRV/$metadata" />
+         <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://ngdapp20.esc.win.colpal.com:8000/sap/opu/odata/sap/ZIM_MAIN_SRV/$metadata" />
+      </Schema>
+   </edmx:DataServices>
+</edmx:Edmx>

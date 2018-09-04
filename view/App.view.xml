@@ -1,0 +1,5 @@
+<mvc:View controllerName="colpal.ppm.projectmgmt.controller.App" 
+			xmlns:mvc="sap.ui.core.mvc" displayBlock="true" busy="{masterShared>/busy}"
+	busyIndicatorDelay="{masterShared>/delay}" xmlns="sap.m">
+	<SplitApp id="idAppControl" mode="HideMode"/>
+</mvc:View>

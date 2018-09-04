@@ -1,0 +1,175 @@
+{
+    "resources": [
+        {
+            "name": "controller/ListSelector.js"
+        },
+        {
+            "name": "controller/Master.controller.js"
+        },
+        {
+            "name": "controller/ProjectsList.controller.js"
+        },
+        {
+            "name": "controller/InitiativeList.controller.js"
+        },
+        {
+            "name": "controller/ErrorHandler.js"
+        },
+        {
+            "name": "controller/Detail.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/BaseController.js"
+        },
+        {
+            "name": "controller/CopyOfCreateEntity.controller.js"
+        },
+        {
+            "name": "controller/ProjectDetails.controller.js"
+        },
+        {
+            "name": ".project.json"
+        },
+        {
+            "name": "util/IPMUtils.js"
+        },
+        {
+            "name": "util/MgrUtils.js"
+        },
+        {
+            "name": "util/PersonalizationUtils.js"
+        },
+        {
+            "name": "util/CustomCurrencyType.js"
+        },
+        {
+            "name": "util/QuestionnaireUtil.js"
+        },
+        {
+            "name": "util/ColumnCatalog.js"
+        },
+        {
+            "name": "util/DateUtils.js"
+        },
+        {
+            "name": "util/CustomCurrencyFormatter.js"
+        },
+        {
+            "name": "util/CustomCurrencyTypeFull.js"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/formatter.js"
+        },
+        {
+            "name": "model/formatter-1.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/GroupSortState.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "view/ProjectGeneralInfo.view.xml"
+        },
+        {
+            "name": "view/Master.view.xml"
+        },
+        {
+            "name": "view/CopyOfCreateEntity.view.xml"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "view/DetailNoObjectsAvailable.view.xml"
+        },
+        {
+            "name": "view/ProjectsList.view.xml"
+        },
+        {
+            "name": "view/NotFound.view.xml"
+        },
+        {
+            "name": "view/InitiativeList.view.xml"
+        },
+        {
+            "name": "view/ViewSettingsDialog.fragment.xml"
+        },
+        {
+            "name": "view/Detail.view.xml"
+        },
+        {
+            "name": "view/ProjectDetails.view.xml"
+        },
+        {
+            "name": "view/DetailObjectNotFound.view.xml"
+        },
+        {
+            "name": ".user.project.json"
+        },
+        {
+            "name": "localService/metadata1.xml"
+        },
+        {
+            "name": "localService/mockserver.js"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "fragment/MgrSelection.fragment.xml"
+        },
+        {
+            "name": "fragment/ProjectFinInfo.fragment.xml"
+        },
+        {
+            "name": "fragment/ProjectChangeLogs.fragment.xml"
+        },
+        {
+            "name": "fragment/ProjectGeneralInfo.fragment.xml"
+        },
+        {
+            "name": "fragment/CopyOfProjectGeneralInfo.fragment.xml"
+        },
+        {
+            "name": "fragment/ProjectAttachment.fragment.xml"
+        },
+        {
+            "name": "fragment/ProjectList.fragment.xml"
+        },
+        {
+            "name": "fragment/ProjectListPersonalization.fragment.xml"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "resources.json",
+            "merged": true
+        },
+        {
+            "name": "img/ZIM_Logo.png"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        }
+    ]
+}

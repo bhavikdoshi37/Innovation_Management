@@ -1,0 +1,113 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:uc="sap.ui.unified.calendar" xmlns:t="sap.ui.table">
+	<VBox class="sapUiSmallMargin">
+		<t:Table id="lineItemsList" rows="{PGI>/ProjectFinInfo}" noDataText="{i18n>detailLineItemTableNoDataText}"
+			busyIndicatorDelay="{detailView>/lineItemTableDelay}" visibleRowCount="{PGI>/Visible/FinInfoRowCount}" fixedColumnCount="1"
+			selectionMode="Single" sortOrder="PGI>leadHubIndicator" selectionBehavior="RowOnly" class="sapUiResponsiveMargin">
+			<t:toolbar>
+				<Toolbar>
+					<Title id="title" text="{i18n>PFIFinAtt}"/>
+					<Title id="divTitle" text="{i18n>PFIDivision}:"/>
+					<ComboBox id="PFinDivisionTitle" items="{path:'PPMData>/VHDivisions', templateShareable: true}" selectedKey="{PGI>/Project/DivisionKey}"
+						visible="{PGI>/Visible/PFinDivision}" editable="false">
+						<items>
+							<core:Item key="{PPMData>GeoKey}" text="{PPMData>Desc}"/>
+						</items>
+					</ComboBox>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</t:toolbar>
+			<t:columns>
+				<t:Column id="_hub" width="8rem">
+					<Label text="{i18n>PFIHub}"/>
+					<t:template>
+						<ComboBox id="PFinHub" items="{path:'PPMData>/VHHubs/Current', templateShareable: true}" placeholder="{i18n>PFin_Placeholder_Hubs}"
+							selectedKey="{PGI>HubKey}" selectionChange="onChange" required="true" visible="{PGI>/Visible/PFinHub}" editable="{PGI>PFinHub}">
+							<items>
+								<core:Item key="{PPMData>HubKey}" text="{PPMData>Desc}"/>
+							</items>
+						</ComboBox>
+					</t:template>
+				</t:Column>
+				<t:Column id="_rolloutdt" width="7rem">
+					<Label text="{i18n>PFIRolloutDt}"/>
+					<t:template>
+						<DatePicker id="PFinRolloutDt" dateValue="{PGI>RolloutDate}" placeholder="{i18n>PFI_Placeholder_RolloutDt}" required="true"
+							visible="{PGI>/Visible/PFIRolloutDt}" editable="false" valueState="{PGI>ValueState_RolloutDate}"
+							valueStateText="{PGI>ValueStateText_RolloutDate}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_currency" width="6rem">
+					<Label text="{i18n>PFICurrency}"/>
+					<t:template>
+						<ComboBox id="PFinCurrency" items="{path:'PPMData>/VHCurrency', templateShareable: true}" placeholder="{i18n>PFin_Placeholder_Currency}"
+							selectedKey="{PGI>CurrencyKey}" selectionChange="onChange" required="true" visible="{PGI>/Visible/PFinCurrency}"
+							editable="{PGI>/Editable/PFinCurrency}" valueState="{PGI>ValueState_CurrencyKey}" valueStateText="{PGI>ValueStateText_CurrencyKey}">
+							<items>
+								<core:Item key="{PPMData>Waers}" text="{PPMData>Ktext}"/>
+							</items>
+						</ComboBox>
+					</t:template>
+				</t:Column>
+				<t:Column id="_PFINetSales" width="9rem">
+					<Label text="{i18n>PFINetSales}"/>
+					<t:template>
+						<Input id="PFinNetSales" textAlign="Right" editable="{PGI>/Editable/PFinNetSales}" required="true" liveChange="onHeaderChange"
+							submit="onFinInfoEnter" visible="{PGI>/Visible/PFinNetSales}" valueState="{PGI>ValueState_NetSales}"
+							valueStateText="{PGI>ValueStateTest_NetSales}" placeholder="{i18n>PFin_Placeholder_NetSales}" tooltip="{i18n>PFin_tooltip_NetSales}"
+							value="{path: 'PGI>NetSalesEdit', type: 'sap.ui.model.type.Currency', formatOptions: {minFractionDigits: 0, maxFractionDigits: 0}, constraints: {minimum: 0}}"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_IncrementalNetSales" width="12rem">
+					<Label text="{i18n>PFIIncrementalNetSales}"/>
+					<t:template>
+						<Input id="PFinIncrementalNetSales" placeholder="{i18n>PFin_Placeholder_IncrementalNetSales}" textAlign="Right" type="Number"
+							value="{path: 'PGI>IncrementalNetSales', type: 'sap.ui.model.type.Float', constraints : {minimum: 0,maximum: 100, maxFractionDigits: 1}}"
+							editable="{PGI>/Editable/PFinIncrementalNetSales}" required="true" visible="{PGI>/Visible/PFinIncrementalNetSales}"
+							valueState="{PGI>ValueState_IncrementalNetSales}" valueStateText="{PGI>ValueStateTest_IncrementalNetSales}"
+							tooltip="{i18n>PFin_tooltip_IncrementalNetSales}" submit="onFinInfoEnter"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_Margin" width="7rem">
+					<Label text="{i18n>PFIMargin}"/>
+					<t:template>
+						<Input id="PFinMargin" placeholder="{i18n>PFin_Placeholder_Margin}" textAlign="Right" type="Number"
+							value="{path: 'PGI>Margin', type: 'sap.ui.model.type.Float', constraints : {minimum: 0,maximum: 100, maxFractionDigits: 1}}"
+							editable="{PGI>/Editable/PFinMargin}" required="true" visible="{PGI>/Visible/PFinMargin}" valueState="{PGI>ValueState_Margin}"
+							valueStateText="{PGI>ValueStateTest_Margin}" tooltip="{i18n>PFin_tooltip_Margin}" submit="onFinInfoEnter"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_EstimatedSpendAP" width="8rem" visible="false">
+					<Label text="{i18n>PFIEstimatedSpendAP}"/>
+					<t:template>
+						<Input id="PFinEstSpend" placeholder="{i18n>PFin_Placeholder_EstSpend}" textAlign="Right"
+							value="{path: 'PGI>EstimatedSpendAPEdit', type: 'sap.ui.model.type.Currency', formatOptions: {minFractionDigits: 0, maxFractionDigits: 0}, constraints: {minimum: 0}}"
+							editable="{PGI>/Editable/PFinEstSpend}" required="true" visible="{PGI>/Visible/PFinEstSpend}" valueState="{PGI>ValueState_EstimatedSpendAP}"
+							valueStateText="{PGI>ValueStateTest_EstimatedSpendAP}" tooltip="{i18n>PFin_tooltip_EstSpend}" liveChange="onHeaderChange"
+							submit="onFinInfoEnter"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_EstimatedSpendInsights" width="11rem" visible="false">
+					<Label text="{i18n>PFIEstimatedSpendInsights}"/>
+					<t:template>
+						<Input id="PFinEstSpendInsight" placeholder="{i18n>PFin_Placeholder_EstSpendInsight}" textAlign="Right"
+							value="{path: 'PGI>EstimatedSpendInsightsEdit', type: 'sap.ui.model.type.Currency', formatOptions: {minFractionDigits: 0, maxFractionDigits: 0}, constraints: {minimum: 0}}"
+							editable="{PGI>/Editable/PFinEstSpendInsight}" required="true" visible="{PGI>/Visible/PFinEstSpendInsight}"
+							valueState="{PGI>ValueState_EstimatedSpendInsights}" valueStateText="{PGI>ValueStateTest_EstimatedSpendInsights}"
+							tooltip="{i18n>PFin_tooltip_EstSpendInsight}" liveChange="onHeaderChange" submit="onFinInfoEnter"/>
+					</t:template>
+				</t:Column>
+				<t:Column id="_EstimatedDesign" width="11rem" visible="false">
+					<Label text="{i18n>PFIEstimatedDesign}"/>
+					<t:template>
+						<Input id="PFinEstSpendGDP" placeholder="{i18n>PFin_Placeholder_EstSpendGDP}" textAlign="Right"
+							value="{path: 'PGI>EstimatedDesignEdit', type: 'sap.ui.model.type.Currency', formatOptions: {minFractionDigits: 0, maxFractionDigits: 0}, constraints: {minimum: 0}}"
+							editable="{PGI>/Editable/PFinEstSpendGDP}" required="true" visible="{PGI>/Visible/PFinEstSpendGDP}"
+							valueState="{PGI>ValueState_EstimatedDesign}" valueStateText="{PGI>FC_ValueStateTest_EstimatedDesign}"
+							tooltip="{i18n>PFin_tooltip_EstSpendGDP}" liveChange="onHeaderChange" submit="onFinInfoEnter"/>
+					</t:template>
+				</t:Column>
+			</t:columns>
+		</t:Table>
+	</VBox>
+</core:FragmentDefinition>

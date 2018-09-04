@@ -1,0 +1,59 @@
+<mvc:View controllerName="colpal.ppm.projectmgmt.controller.CreateEntity" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" title="{viewModel>/viewTitle}" busy="{viewModel>/busy}">
+		<semantic:content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="newEntitySimpleForm"
+				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024"
+				title="{= ${viewModel>/mode} === 'edit'? 'Edit 54b24abcca8c76920cb8a7fe.initiatives': 'New 54b24abcca8c76920cb8a7fe.initiatives'}">
+				<f:content>
+					<Label text="ID" required="false"/>
+					<Input name="ID" id="ID_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'ID', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="InitiativeName" required="false"/>
+					<Input name="InitiativeName" id="InitiativeName_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'InitiativeName', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="Status" required="false"/>
+					<Input name="Status" id="Status_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Status', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="ApprovalDate" required="false"/>
+					<DatePicker name="ApprovalDate" value="{ path: 'ApprovalDate', type: 'sap.ui.model.type.DateTime'}" id="ApprovalDate_id" type="DateTime"
+						enabled="true" visible="true"/>
+					<Label text="LaunchDate" required="false"/>
+					<DatePicker name="LaunchDate" value="{ path: 'LaunchDate', type: 'sap.ui.model.type.DateTime'}" id="LaunchDate_id" type="DateTime"
+						enabled="true" visible="true"/>
+					<Label text="Category" required="false"/>
+					<Input name="Category" id="Category_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Category', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="ProjectCategory" required="false"/>
+					<Input name="ProjectCategory" id="ProjectCategory_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'ProjectCategory', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="Division" required="false"/>
+					<Input name="Division" id="Division_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Division', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="ProjectType" required="false"/>
+					<Input name="ProjectType" id="ProjectType_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'ProjectType', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="ProjectScale" required="false"/>
+					<Input name="ProjectScale" id="ProjectScale_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'ProjectScale', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="BriefIntiator" required="false"/>
+					<Input name="BriefIntiator" id="BriefIntiator_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'BriefIntiator', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="Battlefield" required="false"/>
+					<Input name="Battlefield" id="Battlefield_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true" visible="true"
+						value="{ path: 'Battlefield', type: 'sap.ui.model.odata.type.String' }"/>
+					<Label text="BriefInformation" required="false"/>
+					<Input name="BriefInformation" id="BriefInformation_id" valueLiveUpdate="true" liveChange="_validateSaveEnablement" enabled="true"
+						visible="true" value="{ path: 'BriefInformation', type: 'sap.ui.model.odata.type.String' }"/>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" enabled="{viewModel>/enableCreate}" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

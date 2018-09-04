@@ -1,0 +1,219 @@
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="54b24abcca8c76920cb8a7fe" xml:lang="en" sap:schema-version="0000"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="54b24abcca8c76920cb8a7fe_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="initiativesSet" EntityType="54b24abcca8c76920cb8a7fe.initiatives" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+                <AssociationSet Name="initiativesprojectsprojects" Association="54b24abcca8c76920cb8a7fe.initiativesprojectsprojects" sap:creatable="true"
+					sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="initiativesSet" Role="FromRole_initiativesprojectsprojects"/>
+                    <End EntitySet="projectsSet" Role="ToRole_initiativesprojectsprojects"/>
+                </AssociationSet>
+                <EntitySet Name="projectsSet" EntityType="54b24abcca8c76920cb8a7fe.projects" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="phaseSet" EntityType="54b24abcca8c76920cb8a7fe.phase" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="ProjectCategorySet" EntityType="54b24abcca8c76920cb8a7fe.ProjectCategory" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+                <EntitySet Name="StatusSet" EntityType="54b24abcca8c76920cb8a7fe.Status" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="CategorySet" EntityType="54b24abcca8c76920cb8a7fe.Category" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="ProjectTypeSet" EntityType="54b24abcca8c76920cb8a7fe.ProjectType" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+                <EntitySet Name="BrandSet" EntityType="54b24abcca8c76920cb8a7fe.Brand" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="DivisionSet" EntityType="54b24abcca8c76920cb8a7fe.Division" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="HubSet" EntityType="54b24abcca8c76920cb8a7fe.Hub" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="SubSet" EntityType="54b24abcca8c76920cb8a7fe.Sub" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="ProjectManagerSet" EntityType="54b24abcca8c76920cb8a7fe.ProjectManager" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+                <EntitySet Name="FinanceManagerSet" EntityType="54b24abcca8c76920cb8a7fe.FinanceManager" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+                <EntitySet Name="InnovationTypeSet" EntityType="54b24abcca8c76920cb8a7fe.InnovationType" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+                <EntitySet Name="BattleFieldSet" EntityType="54b24abcca8c76920cb8a7fe.BattleField" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true"/>
+                <EntitySet Name="SegmentSet" EntityType="54b24abcca8c76920cb8a7fe.Segment" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="CurrencySet" EntityType="54b24abcca8c76920cb8a7fe.Currency" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="initiatives">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="InitiativeName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="InitiativeName"/>
+                <Property Name="Status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Status"/>
+                <Property Name="ApprovalDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="ApprovalDate"/>
+                <Property Name="LaunchDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="LaunchDate"/>
+                <Property Name="Category" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Category"/>
+                <Property Name="ProjectCategory" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="ProjectCategory"/>
+                <Property Name="Division" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Division"/>
+                <Property Name="ProjectType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProjectType"/>
+                <Property Name="ProjectScale" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProjectScale"/>
+                <Property Name="BriefIntiator" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="BriefIntiator"/>
+                <Property Name="Battlefield" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Battlefield"/>
+                <Property Name="BriefInformation" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="BriefInformation"/>
+                <NavigationProperty Name="projects" Relationship="54b24abcca8c76920cb8a7fe.initiativesprojectsprojects"
+					FromRole="FromRole_initiativesprojectsprojects" ToRole="ToRole_initiativesprojectsprojects"/>
+            </EntityType>
+            <Association Name="initiativesprojectsprojects">
+                <End Type="54b24abcca8c76920cb8a7fe.initiatives" Multiplicity="1" Role="FromRole_initiativesprojectsprojects"/>
+                <End Type="54b24abcca8c76920cb8a7fe.projects" Multiplicity="*" Role="ToRole_initiativesprojectsprojects"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_initiativesprojectsprojects">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_initiativesprojectsprojects">
+                        <PropertyRef Name="___FK_146cac42f02abd340cd5e8ee"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="projects">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="ProjectName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProjectName"/>
+                <Property Name="Initiative" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Initiative"/>
+                <Property Name="InitiativeName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="InitiativeName"/>
+                <Property Name="ProjectScale" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProjectScale"/>
+                <Property Name="BriefIntiator" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="BriefIntiator"/>
+                <Property Name="BriefInformation" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="BriefInformation"/>
+                <Property Name="ProjectType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProjectType"/>
+                <Property Name="Phase" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Phase"/>
+                <Property Name="Status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Status"/>
+                <Property Name="Category" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Category"/>
+                <Property Name="ProjectCategory" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="ProjectCategory"/>
+                <Property Name="Brand" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Brand"/>
+                <Property Name="Division" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Division"/>
+                <Property Name="Hub" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Hub"/>
+                <Property Name="Sub" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Sub"/>
+                <Property Name="ProjectManager" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ProjectManager"/>
+                <Property Name="FinanceManager" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="FinanceManager"/>
+                <Property Name="InnovationType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="InnovationType"/>
+                <Property Name="BattleField" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="BattleField"/>
+                <Property Name="Segment" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Segment"/>
+                <Property Name="StartDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="StartDate"/>
+                <Property Name="LaunchDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="LaunchDate"/>
+                <Property Name="UpdateDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="LaunchDate2"/>
+                <Property Name="CreatedDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date"
+					sap:label="CreatedDate"/>
+                <Property Name="Currency" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Currency"/>
+                <Property Name="Margin" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Margin"/>
+                <Property Name="MarketShare" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="MarketShare"/>
+                <Property Name="NetSales" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="NetSales"/>
+                <Property Name="Incrementality" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Incrementality"/>
+                <Property Name="IncrementalNetSales" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="IncrementalNetSales"/>
+                <Property Name="EstimatedSpendAnP" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="EstimatedSpendAnP"/>
+                <Property Name="EstimatedSpendInsightsGTN" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="EstimatedSpendInsightsGTN"/>
+                <Property Name="EstimatedSpendGDnP" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="EstimatedSpendGDnP"/>
+                <Property Name="___FK_146cac42f02abd340cd5e8ee" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="___FK_146cac42f02abd340cd5e8ee"/>
+                <Property Name="Grid" Type="Edm.Boolean" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Grid"/>
+            </EntityType>
+            <EntityType Name="phase">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="ProjectCategory">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="Status">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="Category">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="ProjectType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="Brand">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="Division">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="Hub">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="Sub">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="ProjectManager">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="FinanceManager">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="InnovationType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="BattleField">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="Segment">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+            <EntityType Name="Currency">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,114 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:uc="sap.ui.unified.calendar" xmlns:t="sap.ui.table">
+	<VBox class="sapUiSmallMargin"></VBox>
+	<t:TreeTable id="TreeTableAttachment" rows="{path:'PGI>/ItemAttachments', parameters: {arrayNames:['children']}}"
+		selectionMode="Single" selectionBehavior="RowOnly" rowSelectionChange="onPAttRowSelectionChange" enableSelectAll="false" ariaLabelledBy="title" toggleOpenState="onToggle">
+		<t:toolbar>
+				<Toolbar>
+					<!--title="{= ${viewModel>/mode} === 'edit'? 'Edit /IWBEP/GWSAMPLE_BASIC.SalesOrder': 'New /IWBEP/GWSAMPLE_BASIC.SalesOrder'}">-->
+					<Button text="{i18n>PAttAddAttachment}" press="onAddAttachement" tooltip="{i18n>PAttAddAttachment}" visible="{PGI>/Visible/PAttAdd}" type="Emphasized"/>
+							
+					<ToolbarSpacer/>
+					<Button tooltip="{i18n>PAttdelete}" icon="sap-icon://delete" visible="{PGI>/Visible/PAttDelete}" press="onDeleteAttachment"/>
+					<Button tooltip="{i18n>PAttcollapse}" icon="sap-icon://collapse" press="onCollapse"/>
+					<Button tooltip="{i18n>PAttexpand}" icon="sap-icon://expand" press="onExpand"/>
+				</Toolbar>
+			</t:toolbar>
+			<t:columns>
+			<t:Column width="15rem">
+				<Label text="{i18n>PAttFolderName}"/>
+				<t:template>
+					<FlexBox alignItems="Center" direction="Row">
+					<core:Icon src="{PGI>iconPath}" color="#031E48" />
+					<Text text="" width="5px"/>
+					<Text text="{PGI>Text}"/>
+					</FlexBox>
+				</t:template>
+			</t:Column>
+			<t:Column width="12rem">
+				<Label text="{i18n>PAttFile}"/>
+				<t:template>
+					<!--<Text text="{PGI>ActFileDescription}" />-->
+					<Link text="{PGI>ActFileName} " press="onAttachmentPress"  />
+				</t:template>
+			</t:Column>
+			<t:Column width="12rem">
+				<Label text="{i18n>PAttURL}"/>
+				<t:template>
+						<Link text="{PGI>ActFileURL}" target="_blank" href="{PGI>ActFileURL}"  />
+						<!--<Link text="{PGI>ActFileDescription}" press="onAttachmentPress"  />-->
+						<!--<Text text="{PGI>ActFileDescription1}" />-->
+				</t:template>
+			</t:Column>
+			<t:Column width="8rem">
+				<Label text="{i18n>PAttUploadedDt}"/>
+				<t:template>
+					<Text text="{path: 'PGI>DocumentCreatedOnDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'medium'}}"/>
+				</t:template>
+			</t:Column>
+			<t:Column width="8rem">
+				<Label text="{i18n>PAttUploadedBy}"/>
+				<t:template>
+					<Text text="{PGI>DocumentCreatedByName}" />
+				</t:template>
+			</t:Column>
+		</t:columns>
+	</t:TreeTable>
+	<UploadCollection
+				id="UploadCollection"
+				maximumFilenameLength="55"
+				maximumFileSize="25"
+				multiple="false"
+				showSeparators="All"
+				change="onChange"
+				fileSizeExceed="onFileSizeExceed"
+				selectionChange="onSelectionChange"
+				typeMissmatch="onTypeMissmatch"
+				uploadComplete="onUploadComplete"
+				beforeUploadStarts="onBeforeUploadStarts"
+				uploadTerminated="onUploadTerminated"
+				items="{path : 'PGI>/ItemAttachmentsSet', templateShareable : 'true'}"
+				mode="SingleSelect"
+				visible="false">
+				<toolbar>
+					<OverflowToolbar id="myId" >
+						<Title id="attachmentTitle"/>
+						<ToolbarSpacer/>
+						<Button id="downloadButton" text="Download" press="onDownloadItem" enabled="false" type="Transparent"></Button>
+						<!--<Button id="versionButton" text="Upload a new version" press="onVersion" enabled="false" type="Transparent"></Button>-->
+						<UploadCollectionToolbarPlaceholder></UploadCollectionToolbarPlaceholder>
+					</OverflowToolbar>
+				</toolbar>
+				<items>
+					<UploadCollectionItem
+						documentId="{fileId}"
+						fileName="{PGI>Text}"
+						mimeType="{PGI>ActFileMimetype}"
+						url="{PGI>fileURL}"
+						enableEdit="false"
+						enableDelete="false"
+						visibleDelete="false"
+						visibleEdit="false"
+						attributes="{path : 'attributes', templateShareable : 'true'}"
+						statuses="{path : 'statuses', templateShareable : 'true'}"
+						selected="{selected}">
+						<attributes>
+							<ObjectAttribute
+								title="{PGI>fileURL}"
+								text="{PGI>Text}"
+								active="{active}"/>
+						</attributes>
+						<statuses>
+							<ObjectStatus
+								title="{PGI>Text}"
+								text="{PGI>mimeType}"
+								state="{PGI>Text}"
+								icon="{PGI>icon}"
+								iconDensityAware="{iconDensityAware}"
+								textDirection="{textDirection}"/>
+						</statuses>
+					</UploadCollectionItem>
+				</items>
+			</UploadCollection>
+			
+</core:FragmentDefinition>

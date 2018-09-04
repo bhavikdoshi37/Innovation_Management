@@ -1,0 +1,75 @@
+<core:FragmentDefinition xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core"
+	xmlns:custom="colgate.asm.planning.base.util" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+	<P13nDialog cancel="onP13nHandleCancel" initialVisiblePanelType="columns" ok="onP13nHandleClose" reset="onP13nHandleReset" showReset="true">
+		<!--busy="{masterShared>/oDetailBusy/busy}" busyIndicatorDelay="{masterShared>/oDetailBusy/delay}"-->
+		<panels>
+			<P13nColumnsPanel addColumnsItem="onP13nAddColumnsItem" changeColumnsItems="onP13nChangeColumnsItem"
+				items="{path:'P13n>/ColumnCollection'}" title="Columns" type="columns" visible="true" >
+				<items>
+					<P13nItem columnKey="{P13n>path}" text="{P13n>text}" visible="{P13n>visible}"/>
+				</items>
+			</P13nColumnsPanel>
+			<P13nSortPanel addSortItem="onP13nAddSortItem" containerQuery="true" id="oP13nProjectSortPanel" items="{ path: 'P13n>/ColumnCollection' }"
+				layoutMode="Desktop" removeSortItem="onP13nRemoveSortItem" sortItems="{ path: 'P13n>/SortItems' }" title="Sort" type="sort"
+				updateSortItem="onP13nUpdateSortItem" visible="false">
+				<P13nItem columnKey="{P13n>path}" text="{P13n>text}"/>
+				<sortItems>
+					<P13nSortItem columnKey="{P13n>columnKey}" operation="{P13n>operation}"/>
+				</sortItems>
+			</P13nSortPanel>
+			<P13nFilterPanel addFilterItem="onP13nAddFilterItem" containerQuery="true" filterItems="{ path: 'P13n>/FilterItems' }"
+				id="oP13nProjectFilterPanel" items="{ path: 'P13n>/ColumnCollection' }" layoutMode="Desktop" removeFilterItem="onP13nRemoveFilterItem"
+				title="Filter" type="filter" updateFilterItem="onP13nUpdateFilterItem" visible="true">
+				<P13nItem columnKey="{P13n>path}" text="{P13n>text}"/>
+				<filterItems>
+					<P13nFilterItem columnKey="{P13n>columnKey}" operation="{P13n>operation}" value1="{P13n>value1}" exclude="{P13n>exclude}"/>
+				</filterItems>
+			</P13nFilterPanel>
+			<!--<custom:CustomPersonalizationPanel title="{i18n>CP_tabtitle}" type="custom1" visible="true">-->
+			<!--	<custom:content>-->
+			<!--		<FlexBox alignItems="Left" direction="Column" width="100%">-->
+			<!--			<items>-->
+			<!--				<FlexBox alignItems="Center" direction="Row" justifyContent="spaceAround" width="100%">-->
+			<!--					<items>-->
+			<!--						<Panel>-->
+			<!--							<headerToolbar>-->
+			<!--								<Toolbar height="3rem">-->
+			<!--									<Title text="{i18n>CP_header}"/>-->
+			<!--									<ToolbarSpacer/>-->
+			<!--								</Toolbar>-->
+			<!--							</headerToolbar>-->
+			<!--							<content>-->
+			<!--								<Text text="{i18n>CP_instructions}"/>-->
+			<!--								<FlexBox alignItems="Start" direction="Column">-->
+			<!--									<Button icon="sap-icon://display-more" press="onP13nHandleReload" text="{i18n>CP_fetch}"/>-->
+			<!--								</FlexBox>-->
+			<!--							</content>-->
+			<!--						</Panel>-->
+			<!--					</items>-->
+			<!--				</FlexBox>-->
+			<!--	<FlexBox alignItems="Left" direction="Column">-->
+			<!--		<items>-->
+			<!--			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="AddActivityForm"-->
+			<!--				labelSpanL="3" labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024" title="{i18n>CP_Other}">-->
+			<!--				<f:content>-->
+			<!--					<Label required="true" text="{i18n>CP_rows}"/>-->
+			<!--<Input id="Rows" type="Number" value="{P13n_ActivitiesConfig>/MaxTableRows}"/>-->
+			<!--					<ComboBox id="PFinCurrency" items="{path:'PPMData>/VHCurrency'}" placeholder="{i18n>PFin_Placeholder_Currency}"-->
+			<!--	selectedKey="{PGI>CurrencyKey}" selectionChange="onChange" required="true" visible="{PGI>/Visible/PFinCurrency}"-->
+			<!--	editable="{PGI>/Editable/PFinCurrency}" valueState="{PGI>ValueState_CurrencyKey}" valueStateText="{PGI>ValueStateText_CurrencyKey}">-->
+			<!--	<items>-->
+			<!--<core:Item key="{PPMData>CurrencyKey}" text="{PPMData>Desc}"/>-->
+			<!--		<core:Item key="{PPMData>Waers}" text="{PPMData>Ktext}"/>-->
+			<!--	</items>-->
+			<!--</ComboBox>-->
+			<!--				</f:content>-->
+			<!--			</f:SimpleForm>-->
+			<!--		</items>-->
+			<!--	</FlexBox>-->
+			<!--			</items>-->
+			<!--		</FlexBox>-->
+			<!--	</custom:content>-->
+			<!--</custom:CustomPersonalizationPanel>-->
+		</panels>
+	</P13nDialog>
+</core:FragmentDefinition>

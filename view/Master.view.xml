@@ -1,0 +1,119 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:semantic="sap.m.semantic"
+	controllerName="colpal.ppm.projectmgmt.controller.Master">
+	<semantic:MasterPage id="page" title="{masterView>/title}" navButtonPress="onNavBack">
+		<semantic:subHeader>
+			<!--<Bar id="headerBar">-->
+			<!--	<contentMiddle>-->
+			<!--		<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%" search="onSearch"/>-->
+			<!--	</contentMiddle>-->
+			<!--</Bar>-->
+		</semantic:subHeader>
+		<semantic:content>
+			<f:SimpleForm class="editableForm" columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" id="GeoFilterForm" labelSpanL="2"
+				labelSpanM="3" labelSpanS="3" layout="ResponsiveGridLayout" maxContainerCols="2">
+				<f:content>
+					<Label text="{i18n>Master_Div}"/>
+					<ComboBox id="Division" items="{path:'PPMData>/VHDivisions'}" placeholder="{i18n>GlobalFilter_Placeholder_Divisions}"
+						selectedKey="{PPMData>/GlobalFilter/DivisionKey}" selectionChange="onFilterChange">
+						<items>
+							<core:Item key="{PPMData>GeoKey}" text="{PPMData>Desc}"/>
+						</items>
+					</ComboBox>
+					<Label text="{i18n>Master_Hub}"/>
+					<ComboBox id="Hub" items="{path:'PPMData>/VHHubs/CurrentGF', templateShareable: false}" placeholder="{i18n>GlobalFilter_Placeholder_Hubs}"
+						selectedKey="{PPMData>/GlobalFilter/HubKey}" selectionChange="onFilterChange">
+						<items>
+							<core:Item key="{PPMData>HubKey}" text="{PPMData>Desc}"/>
+						</items>
+					</ComboBox>
+					<Label text="{i18n>Master_Category}"/>
+					<ComboBox id="Category" items="{path:'PPMData>/VHCategories'}" placeholder="{i18n>GlobalFilter_Placeholder_Category}"
+						selectedKey="{PPMData>/GlobalFilter/CategoryKey}" selectionChange="onFilterChange">
+						<items>
+							<core:Item key="{PPMData>Key}" text="{PPMData>Description}"/>
+						</items>
+					</ComboBox>
+					<Label text="{i18n>Master_SubCategory}"/>
+					<ComboBox id="SubCategory" items="{path:'PPMData>/VHSubCategories/CurrentGF'}" placeholder="{i18n>GlobalFilter_Placeholder_ProdCategory}"
+						selectedKey="{PPMData>/GlobalFilter/SubcategoryKey}" selectionChange="onFilterChange">
+						<items>
+							<core:Item key="{PPMData>Key}" text="{PPMData>Description}"/>
+						</items>
+					</ComboBox>
+					<Label text="{i18n>Master_ProjectType}"/>
+					<ComboBox id="ProjectType" items="{path:'PPMData>/VHInnovTypes'}" placeholder="{i18n>GlobalFilter_Placeholder_Innovation}"
+						selectedKey="{PPMData>/GlobalFilter/InnovationKey}" selectionChange="onFilterChange">
+						<items>
+							<core:Item key="{PPMData>Key}" text="{PPMData>Value}"/>
+						</items>
+					</ComboBox>
+					<Label text="{i18n>Master_Phase}"/>
+					<ComboBox id="Phase" items="{path:'PPMData>/VHPhases'}" placeholder="{i18n>PGI_Placeholder_Phases}"
+						selectedKey="{PPMData>/GlobalFilter/PhaseKey}" selectionChange="onFilterChange">
+						<items>
+							<core:Item key="{PPMData>Key}" text="{PPMData>Description}"/>
+						</items>
+					</ComboBox>
+				</f:content>
+			</f:SimpleForm>
+			<!--<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>-->
+			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
+			<!--<List id="list" items="{ path: 'PPMData>/Initiatives', sorter: { path: 'Name', descending: false }, groupHeaderFactory: '.createGroupHeader' }" -->
+			<!--		busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" -->
+			<!--		mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" -->
+			<!--		growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange">-->
+			<!--	<infoToolbar>-->
+			<!--		<Toolbar active="true" id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">-->
+			<!--			<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>-->
+			<!--		</Toolbar>-->
+			<!--	</infoToolbar>-->
+			<!--	<items>-->
+			<!--<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{InitiativeName}">-->
+			<!--	<attributes>-->
+			<!--			<ObjectAttribute id="InitiativeAttribute" text="{ProjectCategory}" active="false"/>-->
+			<!--	</attributes>-->
+			<!--	<firstStatus>-->
+			<!--		<ObjectStatus id="IntitativeStatus" title="" text="{path: 'ApprovalDate', type: 'sap.ui.model.type.Date'}" state="None"/>-->
+			<!--	</firstStatus>-->
+			<!--	<secondStatus>-->
+			<!--		<ObjectStatus id="InitiaitiveStatus2" text="{Division}" state="None"/>-->
+			<!--	</secondStatus>-->
+			<!--</ObjectListItem>-->
+			<!--		<ObjectListItem id="initiativeId" showMarkers="false" intro="{PPMData>Id}"-->
+			<!--			title="{PPMData>Name}" number="" numberUnit="" numberState="None" -->
+			<!--			type="Active" selected="true">-->
+			<!--			<attributes>-->
+			<!--				<ObjectAttribute id="InitiativeAttribute"-->
+			<!--					text="{PPMData>CategoryDesc}" active="false"/>-->
+			<!--			</attributes>-->
+			<!--			<firstStatus>-->
+			<!--				<ObjectStatus id="IntitativeStatus" title=""-->
+			<!--					text="{path: 'PPMData>PlannedStart', type: 'sap.ui.model.type.Date'}" state="None"/>-->
+			<!--			</firstStatus>-->
+			<!--			<secondStatus>-->
+			<!--				<ObjectStatus id="InitiaitiveStatus2"-->
+			<!--					text="{PPMData>RegionDesc}" state="None"/>-->
+			<!--			</secondStatus>-->
+			<!--		</ObjectListItem>-->
+			<!--	</items>-->
+			<!--</List>-->
+		</semantic:content>
+		<!--<semantic:addAction>-->
+		<!--	<semantic:AddAction id="addButton" enabled="{appView>/addEnabled}" press="onAdd"/>-->
+		<!--</semantic:addAction>-->
+		<!--<semantic:mainAction>-->
+		<!--    <semantic:MainAction text="All" id="__action0" press="onListAll"/>-->
+		<!--</semantic:mainAction>-->
+		<!--<semantic:sort>-->
+		<!--	<semantic:SortSelect id="sort" selectedKey="{appView>/masterSortBy}" change="onSort">-->
+		<!--		<core:Item id="masterSort1" key="Name" text="{i18n>masterSortInitiativeName}"/>-->
+		<!--		<core:Item id="masterSort2" key="PlannedStartDt" text="{i18n>masterSortPlannedStartDt}"/>-->
+		<!--		<core:Item id="masterSort3" key="RegionDesc" text="{i18n>masterSortDivision}"/>-->
+		<!--		<core:Item id="masterSort4" key="CategoryDesc" text="{i18n>masterSortType}"/>-->
+		<!--	</semantic:SortSelect>-->
+		<!--</semantic:sort>-->
+		<!--<semantic:filter>-->
+		<!--    <semantic:FilterAction tooltip="Filter" id="__action2" press="onOpenViewSettings"/>-->
+		<!--</semantic:filter>-->
+	</semantic:MasterPage>
+</mvc:View>

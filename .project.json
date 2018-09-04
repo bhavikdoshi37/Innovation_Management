@@ -1,0 +1,30 @@
+{
+  "deploy": {
+    "destination": "NGD",
+    "name": "ZIM_PRJ_MGMNT"
+  },
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/ZIM_MAIN_SRV/",
+    "metadataFilePath": "localService/metadata.xml",
+    "mockRequestsFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false
+  },
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "",
+    "defaultLanguage": "",
+    "defaultI18NPropertyFile": "",
+    "resourceModelName": ""
+  },
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "sap.watt.uitools.ide.web",
+    "com.watt.common.builder.sapui5clientbuild"
+  ],
+  "build": {
+    "buildRequired": true,
+    "targetFolder": "dist",
+    "lastBuildDateTime": "Tue, 04 Sep 2018 15:48:06 GMT"
+  }
+}

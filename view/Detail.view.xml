@@ -1,0 +1,19 @@
+<mvc:View controllerName="colpal.ppm.projectmgmt.controller.Detail" xmlns="sap.m" 
+			xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+			xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
+		<!--<VBox class="sapUiResponsiveMargin"></VBox>-->
+
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" 
+			title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" class="noScrollSection" >
+
+		<semantic:content>
+			<core:Fragment id="general" fragmentName="colpal.ppm.projectmgmt.fragment.ProjectList" type="XML" />
+		</semantic:content>
+		<semantic:mainAction>
+	    <!--<semantic:MainAction text="All" id="__action0" press="onListAll"/>-->
+	</semantic:mainAction>
+	<!--<semantic:addAction>-->
+	<!--		<semantic:AddAction id="add" press="onAdd"/>-->
+	<!--	</semantic:addAction>-->
+	</semantic:DetailPage>
+</mvc:View>
