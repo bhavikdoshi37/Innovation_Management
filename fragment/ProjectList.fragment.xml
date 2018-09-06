@@ -28,7 +28,7 @@
 			<t:columns >
 				<t:Column id="_ItemDesc" visible="{P13n>/FixedColumnConfig/0/visible}" width="{P13n>/FixedColumnConfig/0/width}" sortProperty="ItemDesc"
 					filterProperty="ItemDesc">
-					<Label text="{i18n>detailItemName}" />
+					<Label text="{i18n>detailItemName}"/>
 					<t:template>
 						<Text text="{PPMData>ItemDesc}"/>
 					</t:template>

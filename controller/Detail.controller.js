@@ -44,7 +44,6 @@ sap.ui.define([
 			this.setModel(oViewModel, "detailView");
 
 			// this.setModel(oViewModel, "projectView");
-
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 			this._oODataModel = this.getOwnerComponent().getModel();
 			this._oResourceBundle = this.getResourceBundle();
@@ -124,19 +123,19 @@ sap.ui.define([
 			this._dateType = dateType;
 
 			/*
-			var fragmentId = this.getView().createId("general");
-			var oTable = sap.ui.core.Fragment.byId(fragmentId, "lineItemsList");
-			var aColumns = oTable.getColumns();
+				var fragmentId = this.getView().createId("general");
+				var oTable = sap.ui.core.Fragment.byId(fragmentId, "lineItemsList");
+				var aColumns = oTable.getColumns();
 			
-			// console.log("Number of Columns:" + aColumns.length);
-			for (var i = 0; i < aColumns.length; i++)
-			{
-				if (aColumns[i].getSortProperty().includes("Date"))
+				// console.log("Number of Columns:" + aColumns.length);
+				for (var i = 0; i < aColumns.length; i++)
 				{
-					aColumns[i].setFilterType(dateType);
+					if (aColumns[i].getSortProperty().includes("Date"))
+					{
+						aColumns[i].setFilterType(dateType);
+					}
 				}
-			}
-			*/
+				*/
 			this.addDateFilters();
 			// required for accessing elements in a fragment
 			// var prefix = this.getView().createId("").replace("--", "");
@@ -964,127 +963,36 @@ sap.ui.define([
 			this.addDateFilters();
 			this.__setVariantChangedIndicator();
 		},
+
 		onP13nChangeColumnsItem: function(oEvent) {
 			var aItems = oEvent.getParameter("items");
-			var aConfig = this.getOwnerComponent().getModel("P13n").getData().ColumnCollection;
+			var oModel = this.getModel("P13n");
+			var oData = oModel.getData();
+			var flag = "";
 
-			var aNotVisible = [];
-			var aResult = [];
+			for (var j = 0; j < aItems.length; j++) {
+				for (var i = 0; i < oData.FixedColumnConfig.length; i++) {
+					if (aItems[j].columnKey === oData.FixedColumnConfig[i].path) {
+						oData.FixedColumnConfig[i].visible = aItems[j].visible;
+						oData.FixedColumnConfig[i].columnIndex = aItems[j].index;
 
-			for (var i = 0; i < aItems.length; i++) {
-				if (aItems[i].visible) {
-					aResult.push(aConfig[i]);
-				} else {
-					aNotVisible.push(aConfig[i]);
-				}
-			}
-
-			for (var k = 0; k < aResult.length; k++) {
-				aConfig[k] = aResult[k];
-			}
-			for (var k = 0; k < aNotVisible.length; k++) {
-				aConfig[k + aResult.length] = aNotVisible[k];
-			}
-			// Make sure order is the same
-			var aDisplayItems = oEvent.getSource().removeAllItems();
-			for (var l = 0; l < aConfig.length; l++) {
-				// Find the match in the display
-				for (var m = 0; m < aDisplayItems.length; m++) {
-					if (aConfig[l].path === aDisplayItems[m].getColumnKey()) {
-						oEvent.getSource().addItem(aDisplayItems[m]);
-						m = aDisplayItems.length;
+						oData.ColumnCollection[i].visible = aItems[j].visible;
+						if (aItems[j].visible === true) {
+							flag = "X";
+						}
+						break;
 					}
 				}
 			}
-			this.getOwnerComponent().getModel("P13n").refresh(false);
-			// this._syncConfigAndTable();
-			// i = aItems.length;
 
-			// 	// var aItems = oEvent.getParameter("newItems");
-			// 	var aItems = oEvent.getParameter("items");
-			// 	var aConfig = this.getOwnerComponent().getModel("P13n").getData().ColumnCollection;
-			// 	for (var i = 0; i < aItems.length; i++) {
-			// 		// var sColumnKey = aItems[i].getColumnKey();
-			// 		var sColumnKey = aItems[i].columnKey;				
-			// 		// if (aItems[i].mProperties.hasOwnProperty("index")) {
-			// 			// var iNewIndex = aItems[i].mProperties.index;
-			// 		if (aItems[i].hasOwnProperty("index")) {
-			// 			var iNewIndex = aItems[i].index;
-			// 			for (var j = 0; j < aConfig.length; j++) {
-			// 				var sHoldColumnKey = aConfig[j].path;
-			// 				if (sColumnKey === sHoldColumnKey) {
-			// 					var oHoldEntry = aConfig[j];
-			// 					if (iNewIndex > j) {
-			// 						// Moving Down
-			// 						for (var k = j; k < iNewIndex; k++) {
-			// 							aConfig[k] = aConfig[k + 1];
-			// 						}
-			// 					} else {
-			// 						// Moving Up
-			// 						for (var k = j; k > iNewIndex; k--) {
-			// 							aConfig[k] = aConfig[k - 1];
-			// 						}
-			// 					}
-			// 					aConfig[iNewIndex] = oHoldEntry;
-			// 					j = aConfig.length;
-			// 				}
-			// 			}
-			// 			var aIConfig = oEvent.getSource().getItems();
-			// 			for (var j = 0; j < aIConfig.length; j++) {
-			// 				if (sColumnKey === aIConfig[j].getColumnKey()) {
-			// 					var aNotVisible = [];
-			// 					var oHoldEntry = aIConfig[j];
-			// 					oEvent.getSource().removeItem(oHoldEntry);
-			// 					var aDisplayItems = oEvent.getSource().removeAllItems();
-			// 					for (var k = 0; k < aDisplayItems.length; k++) {
-			// 						if (k === iNewIndex) {
-			// 							oEvent.getSource().addItem(oHoldEntry);
-			// 						}
-			// 						if (aDisplayItems[k].getVisible()) {
-			// 							oEvent.getSource().addItem(aDisplayItems[k]);
-			// 						} else {
-			// 							aNotVisible.push(aDisplayItems[k]);
-			// 						}
-			// 					}
-			// 					for (var l = 0; l < aNotVisible.length; l++) {
-			// 						oEvent.getSource().addItem(aNotVisible[l]);
-			// 					}
-			// 					j = aIConfig.length;
-			// 				}
-			// 			}
-			// 			this.getOwnerComponent().getModel("P13n").refresh(false);
-			// 		} else {
-			// 			// Still move unchecked down to the bottom
-			// 			var aNotVisible = [];
-			// 			var aResult = [];
-			// 			for (var j = 0; j < aConfig.length; j++) {
-			// 				if (aConfig[j].visible) {
-			// 					aResult.push(aConfig[j]);
-			// 				} else {
-			// 					aNotVisible.push(aConfig[j]);
-			// 				}
-			// 			}
-			// 			for (var k = 0; k < aResult.length; k++) {
-			// 				aConfig[k] = aResult[k];
-			// 			}
-			// 			for (var k = 0; k < aNotVisible.length; k++) {
-			// 				aConfig[k + aResult.length] = aNotVisible[k];
-			// 			}
-			// 			// Make sure order is the same
-			// 			var aDisplayItems = oEvent.getSource().removeAllItems();
-			// 			for (var l = 0; l < aConfig.length; l++) {
-			// 				// Find the match in the display
-			// 				for (var m = 0; m < aDisplayItems.length; m++) {
-			// 					if (aConfig[l].path === aDisplayItems[m].getColumnKey()) {
-			// 						oEvent.getSource().addItem(aDisplayItems[m]);
-			// 						m = aDisplayItems.length;
-			// 					}
-			// 				}
-			// 			}
-			// 			this.getOwnerComponent().getModel("P13n").refresh(false);
-			// 			i = aItems.length;
-			// 		}
-			// 	}
+			if (flag !== "X") {
+				oData.FixedColumnConfig[0].visible = true;
+				oData.FixedColumnConfig[0].columnIndex = 0;
+
+				oData.ColumnCollection[0].visible = true;
+			}
+
+			oModel.refresh(false);
 			this.__setVariantChangedIndicator();
 		},
 		onP13nHandleCancel: function(oEvent) {
